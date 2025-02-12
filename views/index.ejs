@@ -1,6 +1,6 @@
-<%- include('partials/header.ejs') %>
+<%- include('partials/header') %>
 
-<body class="bg-cover bg-fixed bg-center" style="background-image: url('{{ url_for('static', filename='img/grow-hall.png') }}');">
+<body class="bg-cover bg-fixed bg-center" style="background-image: url('/img/grow-hall.png');">
     <header class="fixed-top bg-custom text-custom shadow-lg">
         <div class="container d-flex align-items-center p-3">
             <div class="d-flex align-items-center mr-3">
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="{{ url_for('static', filename='img/growlamp.png') }}" class="img-fluid rounded">
+                        <img src="/img/growlamp.png" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Smart Lamps</h5>
                         <div class="tooltip">
                             <p>Customizable lamp builds starting from 100W, driven by a microcontroller, allowing for remote monitoring through an online interface</p>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="{{ url_for('static', filename='img/automation.png') }}" class="img-fluid rounded">
+                        <img src="/img/automation.png" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Automation Systems</h5>
                         <div class="tooltip">
                             <p>Growroom monitoring: regulates room climate, automates watering, and tracks soil quality and nutrient levels.</p>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="{{ url_for('static', filename='img/cannabislaws.png') }}" class="img-fluid rounded">
+                        <img src="/img/cannabislaws.png" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Cannabis Anbauverien Beratung</h5>
                         <div class="tooltip">
                             <p>Wir bieten Beratung und Unterstützung bei der Gründung Ihres Anbausvereins und der Satzungserstellung an.</p>
@@ -60,16 +60,13 @@
         <section class="custom-container p-5 rounded-lg shadow mb-5 text-center">
             <h2 class="font-bowlby text-custom-header mb-4">Contact Us</h2>
 
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{{ message[1] }}" role="alert">
-                            {{ message[0] }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <form id="contactForm" action="/" method="POST">
+            <% if (messages.info) { %>
+                <div class="alert alert-success" role="alert">
+                    <%= messages.info %>
+                </div>
+            <% } %>
+
+            <form id="contactForm" action="/contact" method="POST">
                 <div class="form-group">
                     <label for="name" class="text-custom">Name</label>
                     <input type="text" class="form-control" id="name" name="name" required>
@@ -96,4 +93,4 @@
         </section>
     </main>
 
-<%- include('partials/footer.ejs') %>
+<%- include('partials/footer') %>

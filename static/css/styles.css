@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Bowlby+One&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Bona Nova', serif;
+    color: #F3EEE9;
+    background-color: #1a1a1a; /* Dark background for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Bowlby One', cursive;
+    color: #F3EEE9;
+    margin-bottom: 1rem;
+}
+
+/* Header Styles */
+header {
+    background-color: #607c3c;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+/* Main Content Styles */
+main {
+    padding-top: 80px; /* Space for fixed header */
+    padding-bottom: 80px; /* Space for fixed footer */
+}
+
+.custom-container {
+    background-color: rgba(0, 0, 0, 0.80);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: left;
+    padding: 1rem;
+}
+
+/* Image and Tooltip Styles */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #F3EEE9;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Form Styles */
+.form-group label {
+    color: #F3EEE9;
+    font-weight: bold;
+}
+
+.form-control {
+    background-color: #F3EEE9;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+    background-color: #607c3c;
+    color: #F3EEE9;
+    font-family: 'Bowlby One', cursive;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #609a5c;
+    color: #ffffff;
+}
+
+.btn-custom:active {
+    background-color: #000;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #607c3c;
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .custom-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .container-text {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    .btn-custom {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}

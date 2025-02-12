@@ -1,8 +1,17 @@
 {
   "type": "module",
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Katari Farms Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "express-session": "^1.17.3"
   }
 }

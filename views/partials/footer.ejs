@@ -1,5 +1,5 @@
 <footer class="fixed-bottom bg-custom text-custom text-center p-3 shadow-lg">
-    <p>&copy; 2024 Botanical Studio. All rights reserved. Moosdorfstr 7-9, 12435 - </p>
+    <p>&copy; 2024 Katari Farms. All rights reserved. Moosdorfstr 7-9, 12435 Berlin, Germany</p>
 </footer>
 
 <script>
@@ -10,20 +10,21 @@
             tooltip.addEventListener('mouseover', function() {
                 const tooltipBox = this.querySelector('.tooltip');
                 if (tooltipBox) {
-                    tooltipBox.classList.add('tooltip-visible'); // Add class to show tooltip
+                    tooltipBox.style.opacity = '1';
+                    tooltipBox.style.visibility = 'visible';
                 }
             });
 
             tooltip.addEventListener('mouseout', function() {
                 const tooltipBox = this.querySelector('.tooltip');
                 if (tooltipBox) {
-                    tooltipBox.classList.remove('tooltip-visible'); // Remove class to hide tooltip
+                    tooltipBox.style.opacity = '0';
+                    tooltipBox.style.visibility = 'hidden';
                 }
             });
         });
     });
 </script>
-
 
 </body>
 </html>
