@@ -1,0 +1,29 @@
+<footer class="fixed-bottom bg-custom text-custom text-center p-3 shadow-lg">
+    <p>&copy; 2024 Botanical Studio. All rights reserved. Moosdorfstr 7-9, 12435 - </p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tooltips = document.querySelectorAll('.image-container');
+
+        tooltips.forEach(function(tooltip) {
+            tooltip.addEventListener('mouseover', function() {
+                const tooltipBox = this.querySelector('.tooltip');
+                if (tooltipBox) {
+                    tooltipBox.classList.add('tooltip-visible'); // Add class to show tooltip
+                }
+            });
+
+            tooltip.addEventListener('mouseout', function() {
+                const tooltipBox = this.querySelector('.tooltip');
+                if (tooltipBox) {
+                    tooltipBox.classList.remove('tooltip-visible'); // Remove class to hide tooltip
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
