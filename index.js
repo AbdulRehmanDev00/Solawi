@@ -3,6 +3,7 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import flash from 'connect-flash';
 import session from 'express-session';
+import { MailService } from '@sendgrid/mail'; // Import SendGrid
 
 // Create app instance
 const app = express();
@@ -22,18 +23,45 @@ app.use(session({
 }));
 app.use(flash());
 
+// Initialize SendGrid
+const sgMail = new MailService();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Set your SendGrid API key in environment variables
+
 // Routes
 app.get('/', (req, res) => {
     res.render('index', { messages: req.flash('info') });
 });
 
-app.post('/contact', (req, res) => {
+app.post('/contact', async (req, res) => {
     const { name, email, topic, message } = req.body;
-    // Process the form data (e.g., save to database, send email, etc.)
-    console.log(`Name: ${name}, Email: ${email}, Topic: ${topic}, Message: ${message}`);
 
-    // Flash a message
-    req.flash('info', 'Your message has been sent successfully!');
+    // Create the email content
+    const emailContent = `
+        Name: ${name}
+        Email: ${email}
+        Topic: ${topic}
+        Message:
+        ${message}
+    `;
+
+    // Construct the SendGrid email message
+    const msg = {
+        to: 'botanicalstudiolab@gmail.com', // Recipient's email address
+        from: 'fresh@katari.farm', // Sender's email address
+        subject: `Contact Form Submission: ${topic}`,
+        text: emailContent,
+    };
+
+    try {
+        // Send the email
+        await sgMail.send(msg);
+        console.log('Email sent successfully');
+        req.flash('info', 'Message sent successfully.');
+    } catch (error) {
+        console.error('Failed to send message. Error:', error);
+        req.flash('info', `Failed to send message. Error: ${error.message}`);
+    }
+
     res.redirect('/');
 });
 

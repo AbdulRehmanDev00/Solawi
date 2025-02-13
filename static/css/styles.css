@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5 {
 
 /* Header Styles */
 header {
-    background-color: #607c3c;
+    background-color: #78b286;
     padding: 1rem 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -39,9 +39,9 @@ main {
 }
 
 .custom-container {
-    background-color: rgba(0, 0, 0, 0.80);
+    background-color: rgba(120, 178, 134, 0.80);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 2rem;
     margin: 2rem auto;
     max-width: 1200px;
@@ -110,7 +110,7 @@ main {
 }
 
 .btn-custom {
-    background-color: #607c3c;
+    background-color: #78b286;
     color: #F3EEE9;
     font-family: 'Bowlby One', cursive;
     font-size: 1rem;
@@ -121,7 +121,7 @@ main {
 }
 
 .btn-custom:hover {
-    background-color: #609a5c;
+    background-color: #78b286;
     color: #ffffff;
 }
 
@@ -131,7 +131,7 @@ main {
 
 /* Footer Styles */
 footer {
-    background-color: #607c3c;
+    background-color: #78b286;
     padding: 1rem 0;
     text-align: center;
     position: fixed;
