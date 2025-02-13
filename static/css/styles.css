@@ -34,8 +34,12 @@ header h1 {
 
 /* Main Content Styles */
 main {
-    padding-top: 80px; /* Space for fixed header */
+    padding-top: 100px; /* Increased padding to account for the fixed header */
     padding-bottom: 80px; /* Space for fixed footer */
+}
+
+.text-custom {
+    color: antiquewhite;
 }
 
 .custom-container {
@@ -121,7 +125,7 @@ main {
 }
 
 .btn-custom:hover {
-    background-color: #78b286;
+    background-color: #609a5c; /* Slightly darker shade for hover effect */
     color: #ffffff;
 }
 
@@ -146,7 +150,51 @@ footer p {
     font-size: 0.9rem;
 }
 
+/* Navbar Styles */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(243, 238, 233, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-collapse {
+    background-color: #78b286; /* Match the navbar background color */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-item {
+    margin: 0.5rem 0;
+}
+
 /* Responsive Styles */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #78b286; /* Match the navbar background color */
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+}
+
 @media (max-width: 767px) {
     header h1 {
         font-size: 1.5rem;

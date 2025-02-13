@@ -3,7 +3,6 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import flash from 'connect-flash';
 import session from 'express-session';
-import { MailService } from '@sendgrid/mail'; // Import SendGrid
 
 // Create app instance
 const app = express();
@@ -14,7 +13,7 @@ app.set('views', path.join(process.cwd(), 'views'));
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.cwd(), 'static'))); // Serve static files from the "static" directory
+app.use(express.static(path.join(process.cwd(), 'static'))); // Serve static files
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
@@ -23,45 +22,45 @@ app.use(session({
 }));
 app.use(flash());
 
-// Initialize SendGrid
-const sgMail = new MailService();
-sgMail.setApiKey(process.env.SENDGRID_API_KEY); // Set your SendGrid API key in environment variables
-
 // Routes
 app.get('/', (req, res) => {
     res.render('index', { messages: req.flash('info') });
 });
 
-app.post('/contact', async (req, res) => {
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact');
+});
+
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.post('/contact', (req, res) => {
     const { name, email, topic, message } = req.body;
+    console.log(`Contact Form Submission: Name - ${name}, Email - ${email}, Topic - ${topic}, Message - ${message}`);
+    req.flash('info', 'Your message has been sent successfully!');
+    res.redirect('/');
+});
 
-    // Create the email content
-    const emailContent = `
-        Name: ${name}
-        Email: ${email}
-        Topic: ${topic}
-        Message:
-        ${message}
-    `;
+app.post('/signup', (req, res) => {
+    const { email, password } = req.body;
+    console.log(`Sign Up: Email - ${email}, Password - ${password}`);
+    req.flash('info', 'Sign up successful!');
+    res.redirect('/');
+});
 
-    // Construct the SendGrid email message
-    const msg = {
-        to: 'botanicalstudiolab@gmail.com', // Recipient's email address
-        from: 'fresh@katari.farm', // Sender's email address
-        subject: `Contact Form Submission: ${topic}`,
-        text: emailContent,
-    };
-
-    try {
-        // Send the email
-        await sgMail.send(msg);
-        console.log('Email sent successfully');
-        req.flash('info', 'Message sent successfully.');
-    } catch (error) {
-        console.error('Failed to send message. Error:', error);
-        req.flash('info', `Failed to send message. Error: ${error.message}`);
-    }
-
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    console.log(`Login: Email - ${email}, Password - ${password}`);
+    req.flash('info', 'Login successful!');
     res.redirect('/');
 });
 

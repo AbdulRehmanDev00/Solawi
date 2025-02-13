@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<body class="bg-cover bg-fixed bg-center" style="background-image: url('/img/katarifarm-banner-small.png');">
+    <main class="mt-5 pt-5 container">
+        <section class="custom-container p-5 rounded-lg shadow mb-5 text-center">
+            <h2 class="font-bowlby text-custom-header mb-4">Contact Us</h2>
+            <form id="contactForm" action="/contact" method="POST">
+                <div class="form-group">
+                    <label for="name" class="text-custom">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="text-custom">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="text-custom">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-custom">Submit</button>
+            </form>
+        </section>
+    </main>
+
+<%- include('partials/footer') %>
