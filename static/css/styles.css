@@ -7,7 +7,7 @@ body {
     background-color: #1a1a1a; /* Dark background for contrast */
     margin: 0;
     padding: 0;
-    padding-top: 70px;
+    padding-top: 70px; /* Adjusted for slimmer header */
 }
 
 h1, h2, h3, h4, h5 {
@@ -18,8 +18,8 @@ h1, h2, h3, h4, h5 {
 
 /* Header Styles */
 header {
-    background-color: #78b286;
-    padding: 1rem 0;
+    background-color: #5a8f6e; /* Updated to a better-looking green */
+    padding: 0.5rem 0; /* Slimmer header */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -35,12 +35,8 @@ header h1 {
 
 /* Main Content Styles */
 main {
-    padding-top: 100px; /* Increased padding to account for the fixed header */
+    padding-top: 80px; /* Adjusted for slimmer header */
     padding-bottom: 80px; /* Space for fixed footer */
-}
-
-.text-custom {
-    color: antiquewhite;
 }
 
 .custom-container {
@@ -49,7 +45,7 @@ main {
     border-radius: 20px;
     padding: 2rem;
     margin: 2rem auto;
-    max-width: 1200px;
+    max-width: 800px; /* Narrower content boxes */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -194,11 +190,11 @@ footer p {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(243, 238, 233, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-collapse {
-    background-color: #78b286; /* Match the navbar background color */
+    background-color: #5a8f6e; /* Updated to match the header color */
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -212,6 +208,13 @@ footer p {
     margin: 0.5rem 0;
 }
 
+.nav-link {
+    color: white !important; /* White text */
+    font-weight: bold; /* Fatter text */
+    font-size: 1.1rem; /* Slightly larger text */
+    padding: 0.5rem 1rem; /* Better spacing */
+}
+
 /* Responsive Styles */
 @media (max-width: 991.98px) {
     .navbar-collapse {
@@ -220,7 +223,7 @@ footer p {
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: #78b286; /* Match the navbar background color */
+        background-color: #5a8f6e; /* Match the navbar background color */
     }
 
     .navbar-nav {
