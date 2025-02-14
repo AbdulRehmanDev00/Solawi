@@ -56,16 +56,34 @@ main {
     padding: 1rem;
 }
 
-/* Hero Section */
 .hero-section {
-    padding: 150px 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    background-blend-mode: multiply;
-    background-image: url('/img/solawi-banner.jpg'); /* Add your banner image */
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 8vh;
+    color: white;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 60%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 15px;
+}
+
+.hero-section .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
     border-radius: 15px;
 }
 

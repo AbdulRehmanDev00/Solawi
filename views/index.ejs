@@ -1,16 +1,20 @@
 <%- include('partials/header') %>
 
-<body class="bg-cover bg-fixed bg-center" style="background-color: #f3eee9;">
-    <main class="mt-5 pt-5 container">
-        <!-- Hero Section -->
-        <section class="hero-section text-center text-white" style="background-color: black;">
-            <div class="overlay">
-                <h1 class="font-bowlby mb-4">Willkommen bei Solawi</h1>
-                <p class="lead">Gemeinsam für nachhaltige Landwirtschaft und frische, lokale Produkte.</p>
-                <a href="/about" class="btn btn-custom btn-lg">Mehr Erfahren</a>
-            </div>
-        </section>
+<body class="bg-cover bg-fixed bg-center">
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <video autoplay muted loop id="hero-video">
+            <source src="/img/hero-section-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1 class="font-bowlby mb-4">Willkommen bei Solawi</h1>
+            <p class="lead">Gemeinsam für nachhaltige Landwirtschaft und frische, lokale Produkte.</p>
+            <a href="/about" class="btn btn-custom btn-lg">Mehr Erfahren</a>
+        </div>
+    </section>
 
+    <main class="container">
         <!-- About Section -->
         <section class="custom-container p-5 rounded-lg shadow mb-5 text-center">
             <h2 class="font-bowlby text-custom-header mb-4">Über Uns</h2>
@@ -25,7 +29,7 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/step1.jpg" class="img-fluid rounded">
+                        <img src="/img/become-a-member.jpg" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Mitglied werden</h5>
                         <div class="tooltip">
                             <p>Werden Sie Teil unserer Gemeinschaft und unterstützen Sie lokale Landwirte.</p>
@@ -34,7 +38,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/step2.jpg" class="img-fluid rounded">
+                        <img src="/img/fresh-harvest.jpg" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Frische Ernte</h5>
                         <div class="tooltip">
                             <p>Erhalten Sie regelmäßig frische, saisonale Produkte direkt vom Feld.</p>
@@ -43,7 +47,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/step3.jpg" class="img-fluid rounded">
+                        <img src="/img/expirence-community.jpeg" class="img-fluid rounded">
                         <h5 class="font-bowlby text-custom-header mb-4">Gemeinschaft erleben</h5>
                         <div class="tooltip">
                             <p>Treffen Sie Gleichgesinnte und gestalten Sie die Zukunft der Landwirtschaft mit.</p>
@@ -59,20 +63,20 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/gemuese.jpg" class="img-fluid rounded">
-                        <h5 class="font-bowlby text-custom-header mb-4">Gemüse</h5>
+                        <img src="/img/fresh-vegetable.jpg" class="img-fluid rounded">
+                        <h5 class="font-bowlby text-custom-header mb-4">Bio-Gemüse</h5>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/obst.jpg" class="img-fluid rounded">
-                        <h5 class="font-bowlby text-custom-header mb-4">Obst</h5>
+                        <img src="/img/fresh-katari.jpeg" class="img-fluid rounded">
+                        <h5 class="font-bowlby text-custom-header mb-4">Katari</h5>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="image-container">
-                        <img src="/img/eier.jpg" class="img-fluid rounded">
-                        <h5 class="font-bowlby text-custom-header mb-4">Eier</h5>
+                        <img src="/img/organic-products.png" class="img-fluid rounded">
+                        <h5 class="font-bowlby text-custom-header mb-4">Bio-Produkte</h5>
                     </div>
                 </div>
             </div>
