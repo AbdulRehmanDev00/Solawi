@@ -1,5 +1,5 @@
 import express from 'express';
-import Harvest from '../models/Harvest.js';
+import Harvest from '../models/harvest.js';
 
 const router = express.Router();
 
