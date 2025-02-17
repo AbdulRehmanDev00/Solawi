@@ -35,7 +35,7 @@ header h1 {
 
 /* Main Content Styles */
 main {
-    padding-top: 80px; /* Adjusted for slimmer header */
+    padding-top: 20px; /* Reduced padding to minimize the gap */
     padding-bottom: 80px; /* Space for fixed footer */
 }
 
@@ -65,20 +65,20 @@ main {
     justify-content: center;
     text-align: center;
     color: white;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 0; /* Remove default margin */
+    padding-bottom: 0; /* Remove default padding */
 }
 
 #hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
-    height: 60%;
+    width: 100%; /* Full width for better responsiveness */
+    height: 100%; /* Full height for better responsiveness */
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
-    border-radius: 15px;
+    border-radius: 0; /* Remove border-radius for full coverage */
 }
 
 .hero-section .overlay {
@@ -254,6 +254,27 @@ footer p {
 }
 
 @media (max-width: 767px) {
+    .hero-section {
+        height: 70vh; /* Reduce height on smaller screens */
+    }
+
+    .hero-section h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    .hero-section .lead {
+        font-size: 1.25rem; /* Smaller font size for mobile */
+    }
+
+    .custom-container {
+        margin: 1rem 0; /* Reduce margin on smaller screens */
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    .container-text {
+        font-size: 1rem; /* Smaller font size for mobile */
+        padding: 0.5rem; /* Reduce padding on smaller screens */
+    }
     header h1 {
         font-size: 1.5rem;
     }
@@ -271,17 +292,5 @@ footer p {
     .btn-custom {
         font-size: 0.9rem;
         padding: 0.5rem 1rem;
-    }
-
-    .hero-section {
-        padding: 100px 0;
-    }
-
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-
-    .hero-section .lead {
-        font-size: 1.25rem;
     }
 }
