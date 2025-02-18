@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 
 <body class="bg-cover bg-fixed bg-center">
-    <main class="container">
+    <main class="container mt-5 pt-5"> <!-- Add mt-5 pt-5 here -->
         <section class="custom-container p-5 rounded-lg shadow mb-5 text-center">
             <h2 class="font-bowlby text-custom-header mb-4">Sign Up</h2>
             <form id="signupForm">
@@ -26,36 +26,3 @@
     </main>
 
 <%- include('partials/footer') %>
-
-<script>
-    document.getElementById('signupForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        // Clear previous errors
-        document.getElementById('usernameError').textContent = '';
-        document.getElementById('emailError').textContent = '';
-        document.getElementById('signupMessage').textContent = '';
-
-        // Send signup request
-        const response = await fetch('/api/auth/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username, email, password }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            document.getElementById('signupMessage').textContent = 'Sign up successful! Check your email for confirmation.';
-            document.getElementById('signupForm').reset();
-        } else {
-            document.getElementById('signupMessage').textContent = data.message || 'Error signing up. Please try again.';
-        }
-    });
-</script>
