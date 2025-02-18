@@ -10,15 +10,25 @@ router.post('/signup', async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
+        // Normalize username and email to lowercase
+        const normalizedUsername = username.toLowerCase();
+        const normalizedEmail = email.toLowerCase();
+
         // Check if username or email already exists
-        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+        const existingUser = await User.findOne({
+            $or: [
+                { username: normalizedUsername },
+                { email: normalizedEmail }
+            ]
+        });
+        console.log('Existing user:', existingUser); // Debugging
         if (existingUser) {
             return res.status(400).json({ success: false, message: 'Username or email already exists' });
         }
 
         // Create new user
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, email, password: hashedPassword });
+        const newUser = new User({ username: normalizedUsername, email: normalizedEmail, password: hashedPassword });
         await newUser.save();
 
         // Send confirmation email
@@ -32,19 +42,23 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// Login route
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
 
+        // Normalize username to lowercase
+        const normalizedUsername = username.toLowerCase();
+
         // Find user by username
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ username: normalizedUsername });
+        console.log('User found:', user); // Debugging
         if (!user) {
             return res.status(401).json({ success: false, message: 'Invalid username or password' });
         }
 
         // Compare passwords
         const isPasswordValid = await bcrypt.compare(password, user.password);
+        console.log('Password valid:', isPasswordValid); // Debugging
         if (!isPasswordValid) {
             return res.status(401).json({ success: false, message: 'Invalid username or password' });
         }
@@ -55,5 +69,4 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
-
 export default router;
