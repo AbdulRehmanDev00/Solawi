@@ -5,7 +5,6 @@ import { sendEmail } from '../utils/email.js';
 
 const router = express.Router();
 
-// Sign Up route
 router.post('/signup', async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -26,8 +25,14 @@ router.post('/signup', async (req, res) => {
             return res.status(400).json({ success: false, message: 'Username or email already exists' });
         }
 
+        // Trim and hash the password
+        const trimmedPassword = password.trim(); // Trim whitespace
+        console.log('Provided password:', password); // Debugging
+        console.log('Trimmed password:', trimmedPassword); // Debugging
+        const hashedPassword = await bcrypt.hash(trimmedPassword, 10);
+        console.log('Hashed password:', hashedPassword); // Debugging
+
         // Create new user
-        const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username: normalizedUsername, email: normalizedEmail, password: hashedPassword });
         await newUser.save();
 
@@ -56,10 +61,12 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ success: false, message: 'Invalid username or password' });
         }
 
-        // Compare passwords
+        // Trim and compare passwords
+        const trimmedPassword = password.trim(); // Trim whitespace
         console.log('Provided password:', password); // Debugging
+        console.log('Trimmed password:', trimmedPassword); // Debugging
         console.log('Stored hash:', user.password); // Debugging
-        const isPasswordValid = await bcrypt.compare(password.trim(), user.password);
+        const isPasswordValid = await bcrypt.compare(trimmedPassword, user.password);
         console.log('Password valid:', isPasswordValid); // Debugging
 
         if (!isPasswordValid) {
