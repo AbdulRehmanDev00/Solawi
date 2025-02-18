@@ -20,3 +20,33 @@
     </main>
 
 <%- include('partials/footer') %>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Clear previous messages
+        document.getElementById('loginMessage').textContent = '';
+
+        // Send login request
+        const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            document.getElementById('loginMessage').textContent = 'Login successful!';
+            window.location.href = '/'; // Redirect to home page
+        } else {
+            document.getElementById('loginMessage').textContent = data.message || 'Error logging in. Please try again.';
+        }
+    });
+</script>
